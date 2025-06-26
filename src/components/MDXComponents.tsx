@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const MDXComponents = {
-  img: (props: any) => (
+  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <div className="my-6">
       <Image
         {...props}
@@ -14,7 +14,7 @@ export const MDXComponents = {
       />
     </div>
   ),
-  a: ({ href, children }: any) => {
+  a: ({ href, children }: { href?: string; children: React.ReactNode }) => {
     const isInternal = href && href.startsWith("/");
     if (isInternal) {
       return (
@@ -34,13 +34,13 @@ export const MDXComponents = {
       </a>
     );
   },
-  pre: (props: any) => (
+  pre: (props: React.HTMLAttributes<HTMLElement>) => (
     <pre
       className="overflow-x-auto rounded-lg bg-gray-100 p-4 dark:bg-gray-800"
       {...props}
     />
   ),
-  code: (props: any) => (
+  code: (props: React.HTMLAttributes<HTMLElement>) => (
     <code className="rounded bg-gray-200 px-1 dark:bg-gray-700">
       {props.children}
     </code>

@@ -3,12 +3,12 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Link from "next/link";
 import { getAllPostsMeta } from "../../lib/posts";
 
 interface Props {
-  indexSource: any;
+  indexSource: MDXRemoteSerializeResult;
   posts: { slug: string; title: string; date: string }[];
 }
 

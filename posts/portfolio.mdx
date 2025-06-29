@@ -7,69 +7,94 @@ date: "2025-06-26"
 
 이 문서는 지금까지 작업한 **프론트엔드 포트폴리오**의 전체 흐름과 각 단계별 주요 내용을 정리합니다.
 
-## 1. 개발 환경 설정
+1. 개발 환경 설정
 
 - **Next.js + TypeScript** 프로젝트 초기화
-  npx create-next-app@latest my-portfolio --typescript
 
-- \*\*Git & GitHub
-  로컬 리포지토리 생성: git init
-  원격 리포지토리 연결(SSH)
+  ```
+  npx create-next-app@latest my-portfolio --typescript
+  ```
+
+- Git & GitHub
+  - 로컬 리포지토리 생성: git init
+  - 원격 리포지토리 연결(SSH)
+
+  ```
   git remote add origin git@github.com:username/frontend-portfolio.git
   git branch -M main
   git push -u origin main
+  ```
 
-- \*\*Lint & Formatter
-  ESLint, Prettier 설치 및 설정
-  prettier-plugin-tailwindcss 로 Tailwind 클래스 자동 정렬
+- Lint & Formatter
+  - ESLint, Prettier 설치 및 설정
+  - prettier-plugin-tailwindcss 로 Tailwind 클래스 자동 정렬
 
-- **Tailwind CSS
+- Tailwind CSS
+
+  ```
   설치: npm install tailwindcss postcss autoprefixer
+  ```
+
   tailwind.config.js
+
+  ```
   module.exports = {
-  darkMode: 'class',
-  content: ['./src/**/_.{js,ts,jsx,tsx,mdx}', './pages/\*\*/_.{js,ts,jsx,tsx,mdx}'],
-  theme: { extend: {} },
-  plugins: [require('@tailwindcss/typography')],
+    darkMode: 'class',
+    content: ['./src/**/_.{js,ts,jsx,tsx,mdx}', './pages/\*\*/_.{js,ts,jsx,tsx,mdx}'],
+    theme: { extend: {} },
+    plugins: [require('@tailwindcss/typography')],
   }
 
-- \*\*CI/CD
-  GitHub Actions: lint, build 자동화
-  Vercel 연동: 자동 배포
+  ```
 
-## 2. 기본 레이아웃 & 공통 컴포넌트
+- CI/CD
+  - GitHub Actions: lint, build 자동화
+  - Vercel 연동: 자동 배포
 
-    Header.tsx
+2. 기본 레이아웃 & 공통 컴포넌트
 
-## 3. 라우팅 & 데이터 흐름
+- Header.tsx
 
-- \*\*App Router
-  app/layout.tsx 에 공통 레이아웃 사용
+3. 라우팅 & 데이터 흐름
 
-- \*\*Pages Router (블로그)
-  /pages/blog/index.tsx (리스트)
-  /pages/blog/[slug].tsx (동적 포스트)
+- App Router
+  - app/layout.tsx 에 공통 레이아웃 사용
 
-## 4. MDX 블로그 통합
+- Pages Router (블로그)
+  - /pages/blog/index.tsx (리스트)
+  - /pages/blog/[slug].tsx (동적 포스트)
 
-- \*\*의존성
+4. MDX 블로그 통합
+
+- 의존성
+
+  ```
   npm install next-mdx-remote gray-matter remark remark-html
+  ```
 
-- \*\*콘텐츠 폴더
-  posts/
-  ├─ index.mdx # 소개 & 목차
-  ├─ hello-world.mdx # 개별 포스트
-  └─ …
+- 콘텐츠 폴더
+  - posts/
+  - ├─ index.mdx # 소개 & 목차
+  - ├─ hello-world.mdx # 개별 포스트
+  - └─ …
 
-- \*_lib/posts.ts
-  export async function getAllPostsMeta() { /_ index.mdx 제외 필터 _/ }
-  export async function getPostBySlug(slug: string) { /_ MDX 직렬화 \*/ }
+- \_lib/posts.ts
 
-- \*_블로그 리스트 (pages/blog/index.tsx)
+  ```
+  export async function getAllPostsMeta()
+  export async function getPostBySlug(slug: string)
+  ```
+
+- 블로그 리스트 (pages/blog/index.tsx)
+
+  ```
   import { MDXRemote } from 'next-mdx-remote'
-  export default function BlogIndex({ indexSource, posts }) { /_ MDX intro + 목록 \*/ }
+  export default function BlogIndex({ indexSource, posts })
+  ```
 
-- \*\*동적 포스트 (pages/blog/[slug].tsx)
+- 동적 포스트 (pages/blog/[slug].tsx)
+
+  ```
   import { MDXRemote } from 'next-mdx-remote'
   import { MDXComponents } from '@/components/MDXComponents'
 
@@ -77,35 +102,31 @@ date: "2025-06-26"
     <h1>{meta.title}</h1>
     <MDXRemote {...source} components={MDXComponents} />
   </article>
+  ```
 
-- \*\*MDXComponents
+- MDXComponents
+  ```
   export const MDXComponents = {
-  img: (props) => <Image {...props} className="rounded-lg" />,
-  a: ({ href, children }) => href.startsWith('/') ? <Link href={href}>{children}</Link> : <a href={href}>{children}</a>,
-  pre: (p) => <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded" {...p} />,
-  code: (p) => <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">{p.children}</code>,
+    img: (props) => <Image \{...props} className="rounded-lg" />,
+    a: (\{ href, children }) => href.startsWith('/') ? <Link href=\{href}>\{children}</Link> : <a href=\{href}>\{children}</a>,
+    pre: (p) => <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded" \{...p} />,
+    code: (p) => <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">\{p.children}</code>,
   }
+  ```
 
-## 5. 스타일 & 접근성
+5. 스타일 & 접근성
 
-- \*\*Tailwind Typography: <main className="prose prose-lg dark:prose-invert">
+- Tailwind
 
-- \*\*ARIA 속성: aria-label, aria-expanded, aria-controls, aria-modal
+- ARIA 속성: aria-label, aria-pressed
 
-- \*\*키보드 내비게이션: tabIndex, onKeyDown, focus:ring
+6. 문서화 & 기록
 
-- \*\*Skip to Content:
-  <a href="#main" className="sr-only focus:not-sr-only">
-    Skip to content
-  </a>
+- README.md
+  - 프로젝트 개요, 기술 스택, 설치·실행 방법, 주요 기능, 스크린샷
 
-## 6. 문서화 & 기록
+- CHANGELOG.md
 
-- \*\*README.md
-  프로젝트 개요, 기술 스택, 설치·실행 방법, 주요 기능, 스크린샷
+7. 배포 & 유지보수
 
-- \*\*CHANGELOG.md
-
-## 7. 배포 & 유지보수
-
-Vercel: GitHub 연동 → 자동 배포
+- Vercel: GitHub 연동 → 자동 배포

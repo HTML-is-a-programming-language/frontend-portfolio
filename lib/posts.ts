@@ -16,10 +16,7 @@ export async function getAllPostsMeta(): Promise<PostMeta[]> {
   // 블로그 본문 파일만 포함 (index.mdx, portfolio.mdx 등 제외)
   const files = fs
     .readdirSync(postsDir)
-    .filter(
-      (fn) =>
-        fn.endsWith(".mdx") && fn !== "index.mdx" && fn !== "portfolio.mdx",
-    );
+    .filter((fn) => fn.endsWith(".mdx") && fn !== "index.mdx");
 
   return files.map((filename) => {
     const slug = filename.replace(/\.mdx$/, "");

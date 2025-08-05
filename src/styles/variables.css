@@ -1,0 +1,5 @@
+@layer utilities {
+  .section-container {
+    @apply px-4 sm:px-6 md:px-12 lg:px-24 py-20 bg-white dark:bg-zinc-900;
+  }
+}

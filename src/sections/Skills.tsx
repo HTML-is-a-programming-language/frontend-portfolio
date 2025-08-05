@@ -1,13 +1,21 @@
 import { skills } from "@/data/skills";
-import SkillBadge from "@/components/SkillBadge";
+import SectionTitle from "@/components/SectionTitle";
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-4 sm:px-6 md:px-12 lg:px-24 py-20">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">🛠 기술 스택</h2>
+    <section
+      id="skills"
+      className="section-container"
+    >
+      <SectionTitle>🛠 기술 스택</SectionTitle>
       <ul className="flex flex-wrap justify-center gap-4">
         {skills.map((skill) => (
-          <SkillBadge key={skill.name} skill={skill} />
+          <li
+            key={skill}
+            className="bg-zinc-100 dark:bg-zinc-700 text-zinc-800 dark:text-white px-4 py-2 rounded-full text-sm sm:text-base"
+          >
+            {skill}
+          </li>
         ))}
       </ul>
     </section>

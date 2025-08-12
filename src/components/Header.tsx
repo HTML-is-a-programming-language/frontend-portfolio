@@ -10,7 +10,9 @@ export default function Header() {
     return (
         <header className="max-w-screen-xl flex flex-wrap items-center justify-between gap-8 mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-50 border-b">
             <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse shrink-0">
-                <h1 className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900 dark:text-white">포트폴리오</h1>
+                <svg className="w-8 h-8 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
+                </svg>
             </Link>
             <nav className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex md:order-2 sm:gap-2 lg:gap-4">
@@ -40,7 +42,7 @@ export default function Header() {
                         ].join(" ")}
                     id="navbar-nav"
                 >
-                    <ul className="flex flex-col justify-center gap-8 p-4 md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="flex flex-col justify-center p-4 md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">소개</a>
                         </li>

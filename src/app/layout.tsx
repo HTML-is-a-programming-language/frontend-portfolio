@@ -6,6 +6,7 @@ import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Main from "@/components/Main";
+import SplashIntro from "@/components/SplashIntro";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,9 +43,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <Main>{children}</Main>
-          <Footer />
+          <SplashIntro>
+            <Header />
+            <Main>{children}</Main>
+            <Footer />
+          </SplashIntro>
         </ThemeProvider>
       </body>
     </html>

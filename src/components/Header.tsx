@@ -6,7 +6,6 @@ import ThemeToggle from "@/components/ThemeToggle"
 
 export default function Header() {
     const [navOpen, setNavOpen] = useState(false);
-    const [settingsOpen, setSettingsOpen] = useState(false);
 
     return (
         <header className="max-w-screen-xl flex flex-wrap items-center justify-between gap-8 mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-50 border-b">
@@ -23,7 +22,6 @@ export default function Header() {
                         aria-expanded={navOpen}
                         onClick={() => {
                             setNavOpen(v => !v);
-                            setSettingsOpen(false);
                         }}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -34,7 +32,7 @@ export default function Header() {
                 </div>
                 <div
                     className={[
-                        "absolute md:top-1/2 left-0 right-0 md:left-1/2 top-full z-40 mx-auto max-w-screen-xl p-4 origin-top transform-gpu transition duration-300 -translate-1/2",
+                        "absolute md:top-1/2 left-0 right-0 md:left-1/2 top-full z-40 mx-auto max-w-screen-xl p-4 origin-top transform-gpu transition duration-300 md:-translate-1/2",
                         navOpen
                         ? "scale-y-100 opacity-100 pointer-events-auto"
                         : "scale-y-0 opacity-0 pointer-events-none",

@@ -11,9 +11,9 @@ export default function Header() {
     return (
         <header className="max-w-screen-xl flex flex-wrap items-center justify-between gap-8 mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-50 border-b">
             <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse shrink-0">
-                <h1 className="self-center text-2xl font-semibold whitespace-nowrap text-gray-500 dark:text-gray-400">포트폴리오</h1>
+                <h1 className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900 dark:text-white">포트폴리오</h1>
             </Link>
-            <nav className="flex flex-wrap items-center justify-between md:flex-grow gap-2">
+            <nav className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex md:order-2 sm:gap-2 lg:gap-4">
                     <button
                         data-collapse-toggle="navbar-nav"
@@ -34,15 +34,15 @@ export default function Header() {
                 </div>
                 <div
                     className={[
-                        "absolute left-0 right-0 top-full z-40 mx-auto max-w-screen-xl p-4 origin-top transform-gpu transition duration-300",
+                        "absolute md:top-1/2 left-0 right-0 md:left-1/2 top-full z-40 mx-auto max-w-screen-xl p-4 origin-top transform-gpu transition duration-300 -translate-1/2",
                         navOpen
                         ? "scale-y-100 opacity-100 pointer-events-auto"
                         : "scale-y-0 opacity-0 pointer-events-none",
-                        "md:static md:scale-y-100 md:opacity-100 md:pointer-events-auto md:transform-none md:p-0 md:max-w-none md:w-auto"
+                        "md:scale-y-100 md:opacity-100 md:pointer-events-auto md:transform-none md:p-0 md:max-w-none md:w-auto"
                         ].join(" ")}
                     id="navbar-nav"
                 >
-                    <ul className="flex flex-col p-4 md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="flex flex-col justify-center gap-8 p-4 md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">소개</a>
                         </li>

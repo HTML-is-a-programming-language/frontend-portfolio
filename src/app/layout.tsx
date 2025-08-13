@@ -1,21 +1,17 @@
 import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "@/app/globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Main from "@/components/Main";
 import SplashIntro from "@/components/SplashIntro";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-noto-sans-kr",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -41,11 +37,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+      <body className={`${notoSansKr.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SplashIntro>
             <Header />
-            <Main>{children}</Main>
+            <main className="bg-white dark:bg-gray-900">
+              {children}
+            </main>
             <Footer />
           </SplashIntro>
         </ThemeProvider>

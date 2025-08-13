@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="section-container"
+      className="section-anchor bg-white dark:bg-gray-900"
     >
       <SectionTitle>🙋‍♂️ 소개</SectionTitle>
       <p className="text-base sm:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 max-w-3xl mx-auto text-center">

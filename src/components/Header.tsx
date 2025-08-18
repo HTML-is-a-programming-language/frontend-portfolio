@@ -4,27 +4,70 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle"
 
+const SECTION_IDS = ["hero", "about", "projects", "skills", "contact"] as const;
+type SectionId = (typeof SECTION_IDS)[number];
+
+function useSectionSpy(threshold = 0.6) {
+  const [active, setActive] = useState<SectionId>("hero");
+
+  useEffect(() => {
+    const sections = SECTION_IDS
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!sections.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id as SectionId;
+          if (entry.isIntersecting) setActive(id);
+        });
+      },
+      { threshold }
+    );
+
+    sections.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [threshold]);
+
+  return active;
+}
+
 export default function Header() {
     const [navOpen, setNavOpen] = useState(false);
-
     const navRef = useRef<HTMLDivElement>(null);
+    const active = useSectionSpy(0.6);
 
     useEffect(() => {
-        function handleClickOutside(e: MouseEvent) {
+        function onDown(e: MouseEvent) {
             if (!navOpen) return;
             const target = e.target as Node;
-
-            if (
-                navRef.current &&
-                !navRef.current.contains(target)
-            ) {
+            if (navRef.current && !navRef.current.contains(target)) {
                 setNavOpen(false);
             }
         }
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", onDown);
+        return () => document.removeEventListener("mousedown", onDown);
     }, [navOpen]);
+
+    useEffect(() => {
+        function onKey(e: KeyboardEvent) {
+            if (e.key === "Escape") setNavOpen(false);
+        }
+        document.addEventListener("keydown", onKey);
+        return () => document.removeEventListener("keydown", onKey);
+    }, []);
+
+    const handleNavClick = () => setNavOpen(false);
+
+    const linkBase = "block px-3 py-2 rounded-md transition outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600";
+
+    const linkInactive = "text-zinc-900 dark:text-zinc-200 opacity-80 hover:opacity-100 hover:text-zinc-950 dark:hover:text-white";
+
+    const linkActive = "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900";
+
+    const isActive = (id: SectionId) => (active === id ? linkActive : "opacity-80 hover:opacity-100");
 
     return (
         <header className="max-w-screen-xl flex flex-wrap items-center justify-between gap-8 mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-50 border-b">
@@ -64,25 +107,33 @@ export default function Header() {
                         <li>
                             <a
                                 href="#about"
-                                className={`block px-3 py-2 transition text-gray-900 dark:text-white text-shadow-hover`}
+                                onClick={handleNavClick}
+                                aria-current={active === "about" ? "page" : undefined}
+                                className={`${linkBase} ${active === "about" ? linkActive : linkInactive}`}
                             >소개</a>
                         </li>
                         <li>
                             <a
                                 href="#projects"
-                                className={`block px-3 py-2 transition text-gray-900 dark:text-white text-shadow-hover`}
+                                onClick={handleNavClick}
+                                aria-current={active === "projects" ? "page" : undefined}
+                                className={`${linkBase} ${active === "projects" ? linkActive : linkInactive}`}
                             >프로젝트</a>
                         </li>
                         <li>
                             <a
                                 href="#skills"
-                                className={`block px-3 py-2 transition text-gray-900 dark:text-white text-shadow-hover`}
+                                onClick={handleNavClick}
+                                aria-current={active === "skills" ? "page" : undefined}
+                                className={`${linkBase} ${active === "skills" ? linkActive : linkInactive}`}
                             >기술스택</a>
                         </li>
                         <li>
                             <a
                                 href="#contact"
-                                className={`block px-3 py-2 transition text-gray-900 dark:text-white text-shadow-hover`}
+                                onClick={handleNavClick}
+                                aria-current={active === "contact" ? "page" : undefined}
+                                className={`${linkBase} ${active === "contact" ? linkActive : linkInactive}`}
                             >연락하기</a>
                         </li>
                     </ul>

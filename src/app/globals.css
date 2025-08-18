@@ -30,6 +30,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 .text-shadow-hover {
   transition: text-shadow 0.25s ease;
 }

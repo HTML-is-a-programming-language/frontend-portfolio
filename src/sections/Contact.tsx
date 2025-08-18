@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="section-container"
+      className="section-container min-h-[calc(100dvh-150px)] lg:snap-start"
     >
       <SectionTitle>📬 연락하기</SectionTitle>
       <form className="max-w-xl mx-auto space-y-4">

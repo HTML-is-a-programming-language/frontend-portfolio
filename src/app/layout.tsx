@@ -6,7 +6,6 @@ import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SplashIntro from "@/components/SplashIntro";
-import BackToTop from "@/components/BackToTop";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -42,9 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SplashIntro>
             <Header />
-            <main className="bg-white dark:bg-gray-900">
+            <main className="bg-white dark:bg-gray-900 lg:max-h-[calc(100svh-150px)] lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
               {children}
-              <BackToTop />
             </main>
             <Footer />
           </SplashIntro>

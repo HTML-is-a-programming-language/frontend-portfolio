@@ -5,9 +5,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div className="sm:flex sm:items-center sm:justify-between">
+      <div className="mx-auto w-full max-w-screen-xl px-4 py-6 lg:pt-0 lg:pb-8 border-t-gray-200 border-t dark:border-t-gray-700">
+        <div className="md:pt-6 sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2025 html.programming.language. All Rights Reserved.
           </span>

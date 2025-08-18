@@ -1,9 +1,9 @@
 export default function Hero() {
   return (
-    <section id="hero" className="flex items-center bg-white dark:bg-gray-900 min-h-[calc(100svh-73px)]">
+    <section id="hero" className="flex items-center bg-white dark:bg-gray-900 min-h-[calc(100dvh-150px)] lg:snap-start">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white break-keep leading-11 md:leading-none">매일 개선하는 프론트엔드 개발자 지망생</h1>
-            <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400 break-keep">리팩토링·테스트·문서화를 습관화하고 있습니다. <br className="md:hidden" />실사용자 피드백으로 UI/UX를 반복 개선합니다.</p>
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white break-keep leading-11 md:leading-snug">팀과 함께 최고의 사용자 경험을 만드는<br />예비 프론트엔드 개발자</h1>
+            <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400 break-keep">디자인·백엔드와 명확히 소통하고 <br className="md:hidden" />고성능·안정성을 갖춘 제품을 함께 설계·구현하겠습니다.</p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
                 <a href="#" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     이력서 다운로드

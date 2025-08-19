@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="hero" className="flex items-center bg-white dark:bg-gray-900 min-h-[calc(100dvh-150px)] lg:snap-start">
+    <section id="hero" className="flex items-center bg-white dark:bg-gray-900 min-h-[calc(100dvh-73px)]">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white break-keep leading-11 md:leading-snug">팀과 함께 최고의 사용자 경험을 만드는<br />예비 프론트엔드 개발자</h1>
             <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400 break-keep">디자인·백엔드와 명확히 소통하고 <br className="md:hidden" />고성능·안정성을 갖춘 제품을 함께 설계·구현하겠습니다.</p>

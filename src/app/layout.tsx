@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SplashIntro>
             <Header />
-            <main className="bg-white dark:bg-gray-900 lg:max-h-[calc(100svh-150px)] lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
+            <main className="bg-white dark:bg-gray-900">
               {children}
             </main>
             <Footer />

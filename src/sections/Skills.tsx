@@ -5,7 +5,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="section-container min-h-[calc(100dvh-150px)] lg:snap-start"
+      className="section-container min-h-[calc(100dvh-73px)]"
     >
       <SectionTitle>🛠 기술 스택</SectionTitle>
       <ul className="flex flex-wrap justify-center gap-4">

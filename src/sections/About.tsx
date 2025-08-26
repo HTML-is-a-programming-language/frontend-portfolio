@@ -7,12 +7,12 @@ export default function About() {
       className="py-24 min-h-[calc(100dvh-73px)] box-border"
       aria-labelledby="about-title"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-screen-xl px-6">
         <h2
           id="about-title"
           className="mb-8 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white"
         >
-          About
+          성장하는 개발자
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-zinc-200 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60 md:col-span-1">
@@ -64,7 +64,7 @@ export default function About() {
           </div>
           <div className="md:col-span-2 grid gap-6">
             <div className="rounded-2xl border border-zinc-200 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60">
-              <h3 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">Highlights</h3>
+              <h3 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">핵심 지표 & 강점</h3>
               <ul className="grid grid-cols-3 gap-3 text-center">
                 <li className="rounded-xl border border-zinc-200 p-3 dark:border-zinc-800">
                   <p className="text-2xl font-bold text-zinc-900 dark:text-white">+45%</p>
@@ -105,7 +105,7 @@ export default function About() {
               </ul>
             </div>
             <div className="rounded-2xl border border-zinc-200 bg-white/70 p-4 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60">
-              <h3 className="mb-1 text-xl font-semibold text-zinc-900 dark:text-white">Values & FAQ</h3>
+              <h3 className="mb-1 text-xl font-semibold text-zinc-900 dark:text-white">일하는 방식 & 자주 묻는 질문</h3>
               <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
                 <details className="group py-2">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-sm font-medium text-zinc-900 dark:text-white">

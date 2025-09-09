@@ -7,7 +7,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export default function Button({ children, ...props }: ButtonProps) {
   return (
     <button
-      className="rounded-xl bg-zinc-900 px-4 py-2 text-white hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed"
+      className="shrink-0 rounded-xl bg-zinc-900 px-4 py-2 text-white hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed"
       {...props}
     >
       {children}

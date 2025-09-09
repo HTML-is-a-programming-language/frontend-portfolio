@@ -9,10 +9,16 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [msg, setMsg] = useState<string>('');
 
-  // .env.local
   const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
   const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+  const PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+  const MESSAGES = {
+    success: '문의해 주셔서 감사합니다. 빠른 시일 내에 확인 후 답변드리겠습니다.',
+    error:
+      '전송에 실패했습니다. 잠시 후 다시 시도하시거나, 이메일 등의 다른 방법으로 연락 부탁드립니다.',
+    loading: '메시지를 전송하고 있습니다…',
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,16 +26,15 @@ export default function Contact() {
 
     const formData = new FormData(formRef.current);
 
-    // --- 간단 스팸 방지: 허니팟 필드(사용자에겐 숨김) ---
+    // 허니팟(스팸 방지)
     if ((formData.get('company') as string)?.length) {
-      // 봇으로 간주: 성공처럼 처리하고 실제 전송은 생략
       setStatus('success');
-      setMsg('감사합니다. 메시지를 잘 받았습니다!');
+      setMsg(MESSAGES.success);
       formRef.current.reset();
       return;
     }
 
-    // --- 기본 유효성 체크 ---
+    // 기본 유효성
     const name = String(formData.get('from_name') || '').trim();
     const email = String(formData.get('from_email') || '').trim();
     const message = String(formData.get('message') || '').trim();
@@ -40,9 +45,8 @@ export default function Contact() {
     }
 
     setStatus('loading');
-    setMsg('');
+    setMsg(MESSAGES.loading);
 
-    // 템플릿으로 보낼 추가 메타
     formData.set('user_agent', navigator.userAgent);
     formData.set('page_path', window.location.pathname);
 
@@ -51,12 +55,12 @@ export default function Contact() {
         publicKey: PUBLIC_KEY,
       });
       setStatus('success');
-      setMsg('감사합니다. 메시지를 잘 받았습니다!');
+      setMsg(MESSAGES.success);
       formRef.current.reset();
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setMsg('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+      setMsg(MESSAGES.error);
     }
   };
 
@@ -69,7 +73,6 @@ export default function Contact() {
       aria-labelledby="contact-title"
     >
       <div className="mx-auto max-w-screen-xl px-6">
-        {/* 섹션 타이틀 */}
         <div className="mb-8 text-center">
           <h2
             id="contact-title"
@@ -82,7 +85,6 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* 카드형 폼 */}
         <form
           ref={formRef}
           onSubmit={handleSubmit}
@@ -145,15 +147,16 @@ export default function Contact() {
             />
           </div>
 
-          <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center justify-between pt-2 gap-2">
             {/* 상태 메시지 */}
             <p
               role="status"
               aria-live="polite"
               className={[
-                'text-sm',
+                'text-sm break-keep',
                 status === 'success' ? 'text-emerald-600 dark:text-emerald-400' : '',
                 status === 'error' ? 'text-rose-600 dark:text-rose-400' : '',
+                status === 'loading' ? 'text-zinc-600 dark:text-zinc-300' : '',
               ].join(' ')}
             >
               {msg}

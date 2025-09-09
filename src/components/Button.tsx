@@ -1,13 +1,14 @@
-interface ButtonProps {
-  children: React.ReactNode;
-  type?: "button" | "submit";
-}
+import { ButtonHTMLAttributes } from "react";
 
-export default function Button({ children, type = "button" }: ButtonProps) {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  // 필요하면 추가 커스텀 props 정의
+};
+
+export default function Button({ children, ...props }: ButtonProps) {
   return (
     <button
-      type={type}
-      className="bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-semibold py-2 px-6 rounded-lg hover:opacity-90 transition"
+      className="rounded-xl bg-zinc-900 px-4 py-2 text-white hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed"
+      {...props}
     >
       {children}
     </button>

@@ -65,10 +65,10 @@ export default function About() {
           <div className="md:col-span-2 grid gap-6">
             <div className="rounded-2xl border border-zinc-200 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60">
               <h3 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">핵심 지표 & 강점</h3>
-              <ul className="grid grid-cols-3 gap-3 text-center">
+              {/*<ul className="grid grid-cols-3 gap-3 text-center">
                 <li className="rounded-xl border border-zinc-200 p-3 dark:border-zinc-800">
                   <p className="text-2xl font-bold text-zinc-900 dark:text-white">+45%</p>
-                  <p className="text-[11px] text-zinc-600 dark:text-zinc-400">웹 성능 최적화</p>
+                  <p className="text-[11px] text-zinc-600 dark:text-zinc-400">숏폼 영상 피드 최적화</p>
                 </li>
                 <li className="rounded-xl border border-zinc-200 p-3 dark:border-zinc-800">
                   <p className="text-2xl font-bold text-zinc-900 dark:text-white">99.9%</p>
@@ -78,7 +78,7 @@ export default function About() {
                   <p className="text-2xl font-bold text-zinc-900 dark:text-white">Agile</p>
                   <p className="text-[11px] text-zinc-600 dark:text-zinc-400">디자인·개발 협업</p>
                 </li>
-              </ul>
+              </ul>*/}
               <h4 className="mt-6 mb-2 text-sm font-semibold text-zinc-900 dark:text-white">Skill Depth</h4>
               <ul className="space-y-3">
                 {[

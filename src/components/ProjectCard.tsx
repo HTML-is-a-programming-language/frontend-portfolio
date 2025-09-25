@@ -25,14 +25,16 @@ export default function ProjectCard({
             alt={`${title} thumbnail`}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
             priority={false}
           />
         </div>
       )}
 
       {/* 제목 & 설명 */}
-      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">{title}</h3>
+      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
+        {title}
+      </h3>
       <p className="mt-2 mb-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
         {description}
       </p>
@@ -52,14 +54,18 @@ export default function ProjectCard({
 
       {/* 간단 지표 (선택) */}
       {!!metrics.length && (
-        <div className="mb-4 grid grid-cols-3 gap-2 text-center">
+        <div className="mb-4 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-2 text-center">
           {metrics.slice(0, 3).map((m) => (
             <div
               key={m.label}
               className="rounded-xl border border-zinc-200 p-2 dark:border-zinc-800"
             >
-              <p className="text-sm font-bold text-zinc-900 dark:text-white">{m.value}</p>
-              <p className="text-[10px] text-zinc-600 dark:text-zinc-400">{m.label}</p>
+              <p className="text-sm font-bold text-zinc-900 dark:text-white">
+                {m.value}
+              </p>
+              <p className="text-[10px] text-zinc-600 dark:text-zinc-400">
+                {m.label}
+              </p>
             </div>
           ))}
         </div>
@@ -82,7 +88,7 @@ export default function ProjectCard({
           rel="noopener noreferrer"
           className="inline-flex items-center rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-800
                      transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-400
-                     dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800 dark:focus:ring-zinc-600"
+                     dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800 dark:focus:ring-zinc-600 h-fit"
         >
           GitHub
         </a>
@@ -93,7 +99,7 @@ export default function ProjectCard({
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-lg bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white transition
                        hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-zinc-400
-                       dark:bg-white dark:text-zinc-900 dark:focus:ring-zinc-600"
+                       dark:bg-white dark:text-zinc-900 dark:focus:ring-zinc-600 h-fit"
           >
             Demo
           </a>
@@ -132,7 +138,9 @@ export default function ProjectCard({
               {caseStudy.problem && (
                 <section>
                   <h4 className="mb-1 font-semibold">문제 정의</h4>
-                  <p className="text-zinc-700 dark:text-zinc-300">{caseStudy.problem}</p>
+                  <p className="text-zinc-700 dark:text-zinc-300">
+                    {caseStudy.problem}
+                  </p>
                 </section>
               )}
 
@@ -161,7 +169,9 @@ export default function ProjectCard({
               {caseStudy.roleStack && (
                 <section>
                   <h4 className="mb-1 font-semibold">역할 & 스택</h4>
-                  <p className="text-zinc-700 dark:text-zinc-300">{caseStudy.roleStack}</p>
+                  <p className="text-zinc-700 dark:text-zinc-300">
+                    {caseStudy.roleStack}
+                  </p>
                 </section>
               )}
             </div>

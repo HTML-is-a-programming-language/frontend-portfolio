@@ -105,9 +105,9 @@ export default function About() {
               </ul>
             </div>
             <div className="rounded-2xl border border-zinc-200 bg-white/70 p-4 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60">
-              <h3 className="mb-1 text-xl font-semibold text-zinc-900 dark:text-white">일하는 방식 & 자주 묻는 질문</h3>
+              <h3 className="mb-1 text-xl font-semibold text-zinc-900 dark:text-white">{/*일하는 방식 & */}자주 묻는 질문</h3>
               <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
-                <details className="group py-2">
+                {/*<details className="group py-2">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-sm font-medium text-zinc-900 dark:text-white">
                     코드 스타일과 협업 방식은?
                     <svg className="h-4 w-4 transition group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
@@ -117,7 +117,7 @@ export default function About() {
                   <div className="pb-2 text-sm text-zinc-700 dark:text-zinc-300">
                     Git Flow를 기본으로 학습하고 있으며, 코드 리뷰와 Lint/Prettier를 활용해 협업 시 일관성을 유지하려 노력합니다.
                   </div>
-                </details>
+                </details>*/}
 
                 <details className="group py-2">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-sm font-medium text-zinc-900 dark:text-white">

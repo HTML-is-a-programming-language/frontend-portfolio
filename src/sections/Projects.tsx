@@ -74,7 +74,7 @@ export default function Projects() {
         </div>
 
         {/* 카드 그리드 */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 sm:[grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
           {data.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}

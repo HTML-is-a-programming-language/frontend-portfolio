@@ -2,30 +2,34 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
-    title: "검색 성능 개선 실험",
-    description: "Next.js로 SSR 캐싱·이미지 최적화·코드 스플리팅을 적용해 초기 로딩 체감을 낮춘 프로젝트",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
-    github: "https://github.com/yourname/search-perf",
-    demo: "https://search-perf-demo.vercel.app",
-    cover: "/thumbs/search-perf.webp",
-    highlights: ["LCP -28%", "A11y 97점", "불필요 렌더 제거"],
+    title: "React 블로그 프로젝트",
+    description:
+        "React와 Firebase(Firestore)를 사용해 카테고리 기반 글쓰기/목록/정렬 UI를 구현하고 GitHub Pages로 배포한 학습형 블로그",
+    tags: ["React", "Firebase", "JavaScript", "CSS"],
+    github: "https://github.com/HTML-is-a-programming-language/blog",
+    demo: "https://html-is-a-programming-language.github.io/blog/",
+    cover: "/thumbs/react-blog.png",
+    highlights: ["카테고리 탭/필터", "모달 글쓰기 UI", "최신순 정렬", "GitHub Pages 배포"],
     metrics: [
-      { label: "LCP", value: "-28%" },
-      { label: "A11y", value: "97" },
-      { label: "Build", value: "-15%" },
+        { label: "Categories", value: "5" },
+        { label: "Deploy", value: "GitHub Pages" }
     ],
-    date: "2025-08-18",
-    score: 82,
+    date: "2025-03-13",
+    score: 70,
     caseStudy: {
-      problem: "초기 로딩 지연으로 주요 콘텐츠 노출이 늦고 이탈률 증가",
-      approach: [
-        "이미지 AVIF/WebP, Next/Image 도입",
-        "동적 import로 코드 스플리팅 & 지연 로딩",
-        "SSR 캐싱과 불필요 렌더 제거",
-        "키보드 내비게이션/ARIA 점검",
-      ],
-      result: ["LCP -28%", "접근성 97점", "컴포넌트 재사용성↑, 유지보수성↑"],
-      roleStack: "개발 100% · Next.js, React, TypeScript, Tailwind",
-    },
+        problem: "정적 페이지 구조에서 글 분류/정렬/작성 흐름을 반복 구현하기 비효율적",
+        approach: [
+            "컴포넌트 기반으로 목록/카테고리 탭/글쓰기 모달을 분리 설계",
+            "Firebase Firestore에 컬렉션 저장(카테고리·제목·내용·작성시각) 및 쿼리(orderBy, where)로 목록/정렬",
+            "CSS로 반응형 레이아웃과 리스트형 UI 구성",
+            "GitHub Pages를 통해 정적 배포"
+        ],
+        result: [
+            "카테고리 필터와 최신순 정렬로 탐색 흐름 개선",
+            "모달 글쓰기로 작성 단계 단순화",
+            "Firebase 연동 경험 및 GitHub Pages 배포 경험 축적"
+        ],
+        roleStack: "개발 100% · React, Firebase(Firestore), CSS, GitHub Pages"
+    }
   },
 ];

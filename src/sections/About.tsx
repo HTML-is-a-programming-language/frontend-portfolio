@@ -27,7 +27,7 @@ export default function About() {
               />
               <div>
                 <p className="text-lg font-semibold text-zinc-900 dark:text-white">서승준</p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">퍼블리셔</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">웹 퍼블리셔</p>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">→ 예비 프론트엔드 개발자</p>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function About() {
               ))}
             </div>
             <p className="mt-3 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-                퍼블리셔 3년차로 HTML·CSS·JavaScript 기반 마크업과 인터랙션 구현에 강점이 있습니다.<br />
+                웹 퍼블리셔 3년차로 HTML·CSS·JavaScript 기반 마크업과 인터랙션 구현에 강점이 있습니다.<br />
                 성능·접근성·확장성을 우선하며, 엔지니어링·디자인 팀과의 협업으로 최고의 사용자 경험을 설계·개선하는 프론트엔드로 성장하고 싶습니다.
             </p>
             <div className="mt-4">
@@ -127,7 +127,7 @@ export default function About() {
                     </svg>
                   </summary>
                   <div className="pb-2 text-sm text-zinc-700 dark:text-zinc-300">
-                    퍼블리셔 경험을 바탕으로 정교한 마크업과 UI 구현에 자신 있으며, 학습을 통해 성능 개선과 접근성 향상에 꾸준히 도전하고 있습니다.
+                    웹 퍼블리셔 경험을 바탕으로 정교한 마크업과 UI 구현에 자신 있으며, 학습을 통해 성능 개선과 접근성 향상에 꾸준히 도전하고 있습니다.
                   </div>
                 </details>
 
